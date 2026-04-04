@@ -33,6 +33,22 @@ body {
   animation: fadeUp 0.8s ease both;
 }
 
+.install-app-btn {
+  position: relative;
+  overflow: visible;
+  animation: installButtonFloat 2s ease-in-out infinite;
+}
+
+.install-app-btn::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 9999px;
+  opacity: 0;
+  animation: installButtonRing 2s ease-out infinite;
+}
+
 #google_translate_element,
 .goog-logo-link,
 .goog-te-gadget span,
@@ -64,13 +80,42 @@ body {
   }
 }
 
+@keyframes installButtonFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes installButtonRing {
+  0% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+
+  35% {
+    opacity: 0.95;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.15);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
   .hover-lift,
-  .animate-fade-up {
+  .animate-fade-up,
+  .install-app-btn,
+  .install-app-btn::after {
     animation: none !important;
     transition: none !important;
     transform: none !important;

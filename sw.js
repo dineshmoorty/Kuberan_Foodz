@@ -4,6 +4,8 @@ const APP_SHELL = [
   "./manifest.webmanifest",
   "./assets/css/styles.css",
   "./assets/images/Logo.png",
+  "./assets/images/icon-192.png",
+  "./assets/images/icon-512.png",
   "./assets/images/bg.jpg",
   "./assets/images/bg_2.jpg",
   "./assets/images/empty_cart.jpg",
