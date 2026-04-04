@@ -3,6 +3,8 @@ const cartEmptyState = document.getElementById("cart-empty");
 const cartSummary = document.getElementById("cart-summary");
 const cartSubtotal = document.getElementById("cart-subtotal");
 const cartGrandTotal = document.getElementById("cart-grand-total");
+const cartLayout = document.getElementById("cart-layout");
+const cartMainColumn = document.getElementById("cart-main-column");
 const clearCartButton = document.getElementById("clear-cart");
 const orderWhatsAppLink = document.getElementById("order-whatsapp");
 const orderWhatsAppNote = document.getElementById("order-whatsapp-note");
@@ -118,12 +120,30 @@ function renderCartPage() {
     cartItemsContainer.innerHTML = "";
     cartEmptyState?.classList.remove("hidden");
     cartSummary?.classList.add("hidden");
+    cartLayout?.classList.remove("xl:grid-cols-[1.7fr_0.9fr]");
+    cartMainColumn?.classList.add("mx-auto", "w-full", "max-w-2xl");
+    cartEmptyState?.classList.add(
+      "flex",
+      "min-h-[55vh]",
+      "flex-col",
+      "items-center",
+      "justify-center"
+    );
     window.dispatchEvent(new Event("kuberan-translate-refresh"));
     return;
   }
 
   cartEmptyState?.classList.add("hidden");
   cartSummary?.classList.remove("hidden");
+  cartLayout?.classList.add("xl:grid-cols-[1.7fr_0.9fr]");
+  cartMainColumn?.classList.remove("mx-auto", "w-full", "max-w-2xl");
+  cartEmptyState?.classList.remove(
+    "flex",
+    "min-h-[55vh]",
+    "flex-col",
+    "items-center",
+    "justify-center"
+  );
   cartItemsContainer.innerHTML = items.map(createCartItem).join("");
 
   if (cartSubtotal) {

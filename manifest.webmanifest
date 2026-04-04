@@ -1,0 +1,19 @@
+{
+  "name": "Kuberan Foodz",
+  "short_name": "Kuberan Foodz",
+  "description": "Homemade tiffen, rice, and biriyani ordering for customers in Madurai.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFF7ED",
+  "theme_color": "#D97A2B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./assets/images/Logo.png",
+      "sizes": "609x657",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

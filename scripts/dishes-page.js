@@ -1,5 +1,6 @@
 const dishesGrid = document.getElementById("dishes-grid");
 const dishesFeedback = document.getElementById("cart-feedback");
+const dishesFeedbackMessage = document.getElementById("cart-feedback-message");
 
 function translate(key, params = {}, fallback = "") {
   if (window.KuberanI18n?.t) {
@@ -43,17 +44,17 @@ function createDishCard(dish) {
 }
 
 function showFeedback(message) {
-  if (!dishesFeedback) return;
+  if (!dishesFeedback || !dishesFeedbackMessage) return;
 
-  dishesFeedback.textContent = message;
-  dishesFeedback.classList.remove("opacity-0");
-  dishesFeedback.classList.add("opacity-100");
+  dishesFeedbackMessage.textContent = message;
+  dishesFeedback.classList.remove("opacity-0", "translate-y-6");
+  dishesFeedback.classList.add("opacity-100", "translate-y-0");
   window.dispatchEvent(new Event("kuberan-translate-refresh"));
 
   window.clearTimeout(showFeedback.timeoutId);
   showFeedback.timeoutId = window.setTimeout(() => {
-    dishesFeedback.classList.add("opacity-0");
-    dishesFeedback.classList.remove("opacity-100");
+    dishesFeedback.classList.add("opacity-0", "translate-x-6");
+    dishesFeedback.classList.remove("opacity-100", "translate-x-0");
   }, 1800);
 }
 

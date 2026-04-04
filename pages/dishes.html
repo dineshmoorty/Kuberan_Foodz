@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#D97A2B" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <title>Kuberan Foodz Dishes | Idly, Dosai, Rice, Biriyani in Madurai</title>
     <meta
       name="description"
@@ -20,6 +23,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="../assets/images/Logo.png" />
     <link rel="icon" href="../assets/images/Logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../assets/images/Logo.png" />
+    <link rel="manifest" href="../manifest.webmanifest" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <script type="application/ld+json">
@@ -78,9 +83,10 @@
 
     <main class="pt-24">
       <section
-        class="relative overflow-hidden bg-gradient-to-br from-[#7A3D12] via-[#D97A2B] to-[#F1B16D] text-white"
+        class="relative overflow-hidden bg-cover bg-center text-white"
+        style="background-image: url('../assets/images/bg_2.jpg')"
       >
-        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="absolute inset-0 bg-black/60"></div>
         <div class="relative container mx-auto px-4 py-16 text-center">
           <p class="animate-fade-up mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#FFE1B8]">
             Customer Orders
@@ -114,18 +120,43 @@
           </div>
 
           <div
-            id="cart-feedback"
-            class="mb-6 rounded-2xl bg-[#6FAF4F] px-4 py-3 text-center font-semibold text-white opacity-0 transition-opacity duration-300"
-            aria-live="polite"
-          ></div>
-
-          <div
             id="dishes-grid"
             class="grid gap-8 sm:grid-cols-2 xl:grid-cols-3"
           ></div>
         </div>
       </section>
     </main>
+
+    <div
+      id="cart-feedback"
+      class="pointer-events-none fixed bottom-24 right-6 z-50 flex w-[calc(100%-3rem)] max-w-sm translate-y-6 items-start gap-3 rounded-2xl bg-white/95 px-4 py-4 text-[#7A3D12] opacity-0 shadow-2xl shadow-black/20 ring-1 ring-[#F3D4B6] backdrop-blur transition-all duration-300"
+      aria-live="polite"
+    >
+      <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#6FAF4F] text-white">
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 13l4 4L19 7"
+          ></path>
+        </svg>
+      </div>
+      <div class="min-w-0">
+        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-[#6FAF4F]">
+          Added
+        </p>
+        <p id="cart-feedback-message" class="mt-1 text-base font-semibold">
+          Item added to cart
+        </p>
+      </div>
+    </div>
 
     <a
       href="./cart.html"
@@ -235,6 +266,7 @@
       </div>
     </footer>
 
+    <script src="../scripts/pwa.js"></script>
     <script src="../scripts/cart.js"></script>
     <script src="../scripts/dishes-page.js"></script>
   </body>

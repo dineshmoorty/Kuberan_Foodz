@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#D97A2B" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <title>Kuberan Foodz Cart | Order Homemade Tiffen in Madurai</title>
     <meta
       name="description"
@@ -20,6 +23,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="../assets/images/Logo.png" />
     <link rel="icon" href="../assets/images/Logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../assets/images/Logo.png" />
+    <link rel="manifest" href="../manifest.webmanifest" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <script type="application/ld+json">
@@ -86,20 +91,19 @@
                 Review Your Order
               </h2>
             </div>
-            <a
-              href="./dishes.html"
-              class="hover-lift inline-flex items-center justify-center rounded-full bg-[#D97A2B] px-5 py-3 font-semibold text-white shadow-lg shadow-[#D97A2B]/25 transition hover:bg-[#c66b24]"
-            >
-              Add More Dishes
-            </a>
           </div>
 
-          <div class="grid gap-8 xl:grid-cols-[1.7fr_0.9fr]">
-            <div>
+          <div id="cart-layout" class="grid gap-8 xl:grid-cols-[1.7fr_0.9fr]">
+            <div id="cart-main-column">
               <div
                 id="cart-empty"
                 class="rounded-3xl bg-white p-10 text-center shadow-lg"
               >
+                <img
+                  src="../assets/images/empty_cart.jpg"
+                  alt="Empty Cart"
+                  class="mx-auto mb-6 h-32 w-auto"
+                />
                 <h3 class="mb-3 text-2xl font-bold text-[#7A3D12]">
                   Your cart is empty
                 </h3>
@@ -328,6 +332,7 @@
       </div>
     </footer>
 
+    <script src="../scripts/pwa.js"></script>
     <script src="../scripts/cart.js"></script>
     <script src="../scripts/cart-page.js"></script>
   </body>
