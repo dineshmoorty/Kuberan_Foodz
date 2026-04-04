@@ -3,10 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kuberan Foodz</title>
+    <title>Kuberan Foodz | Madurai Tiffen, Saurashtra Food, South Gate</title>
+    <meta
+      name="description"
+      content="Kuberan Foodz is a homemade tiffen and meals brand in Madurai serving street-vendor style South Indian and Saurashtra food near South Gate, Mahal, and Madurai Main areas."
+    />
+    <meta
+      name="keywords"
+      content="Kuberan Foodz, Madurai food, Madurai tiffen, South Gate Madurai food, Mahal food, Madurai Main food, street vendor food Madurai, Saurashtra food Madurai, Sourashtra food, idly dosai Madurai, homemade food Madurai"
+    />
+    <meta property="og:title" content="Kuberan Foodz | Madurai Tiffen, Saurashtra Food, South Gate" />
+    <meta
+      property="og:description"
+      content="Homemade tiffen, rice, and biriyani in Madurai with street-vendor style South Indian and Saurashtra flavors near South Gate and Mahal."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./assets/images/Logo.png" />
     <link rel="icon" href="./assets/images/Logo.png" type="image/png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Kuberan Foodz",
+        "telephone": "+919488270932",
+        "email": "storeskuberan@gmail.com",
+        "image": "./assets/images/Logo.png",
+        "servesCuisine": ["South Indian", "Saurashtra"],
+        "areaServed": ["Madurai", "South Gate", "Mahal", "Madurai Main"],
+        "sameAs": [
+          "https://www.zomato.com/madurai/shri-kuberan-tiffen-home-periyar",
+          "https://www.google.com/maps/place/SHRI+KUBERAN+TIFFEN+HOME/data=!4m2!3m1!1s0x0:0x9ef6e6fab2e9657b?sa=X&ved=1t:2428&hl=en&ictx=111"
+        ]
+      }
+    </script>
   </head>
   <body class="flex flex-col min-h-screen" data-page="home">
     <!-- Header -->
@@ -44,7 +75,7 @@
           </button>
           <nav
             id="nav-panel"
-            class="fixed inset-y-0 right-0 z-50 w-4/5 max-w-xs transform translate-x-full bg-[#D97A2B] p-6 shadow-2xl transition-transform duration-300 ease-out md:static md:translate-x-0 md:w-auto md:bg-transparent md:p-0 md:shadow-none"
+            class="fixed inset-y-0 right-0 z-50 flex min-h-screen w-4/5 max-w-xs transform flex-col overflow-y-auto bg-[#D97A2B] p-6 shadow-2xl transition-transform duration-300 ease-out translate-x-full md:static md:min-h-0 md:w-auto md:max-w-none md:translate-x-0 md:flex-row md:items-center md:overflow-visible md:bg-transparent md:p-0 md:shadow-none"
           >
             <div class="flex items-center justify-between mb-6 md:hidden">
               <span class="text-lg font-semibold">Menu</span>
@@ -71,7 +102,7 @@
             </div>
             <ul
               id="nav-menu"
-              class="flex flex-col gap-3 md:flex-row md:items-center md:gap-4"
+              class="mt-4 flex flex-col gap-5 text-lg md:mt-0 md:flex-row md:items-center md:gap-4 md:text-base"
             >
               <li>
                 <a href="./index.html" class="hover:underline active">Home</a>
@@ -589,7 +620,8 @@
           <h3 class="mb-3 text-2xl font-bold">Kuberan Foodz</h3>
           <p class="mb-4 text-sm leading-6 text-[#F8E3CF]">
             Homemade dishes prepared with care, clean ingredients, and trusted
-            quality for everyday tiffen and meals.
+            quality for everyday tiffen and meals in Madurai, with South Gate,
+            Mahal, Madurai Main, and Saurashtra-style local taste.
           </p>
           <a
             href="https://www.google.com/maps/place/SHRI+KUBERAN+TIFFEN+HOME/data=!4m2!3m1!1s0x0:0x9ef6e6fab2e9657b?sa=X&ved=1t:2428&hl=en&ictx=111"

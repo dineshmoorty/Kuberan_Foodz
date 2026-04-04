@@ -2,6 +2,7 @@ const navToggle = document.getElementById("nav-toggle");
 const navClose = document.getElementById("nav-close");
 const navPanel = document.getElementById("nav-panel");
 const navBackdrop = document.getElementById("nav-backdrop");
+const navMenu = document.getElementById("nav-menu");
 
 function setNavOpen(open) {
   if (!navPanel || !navBackdrop || !navToggle) return;
@@ -28,4 +29,13 @@ if (navClose && navPanel && navBackdrop) {
 
 if (navBackdrop && navPanel) {
   navBackdrop.addEventListener("click", () => setNavOpen(false));
+}
+
+if (navMenu && navPanel) {
+  navMenu.addEventListener("click", (event) => {
+    const link = event.target.closest("a");
+    if (!link || window.innerWidth >= 768) return;
+
+    setNavOpen(false);
+  });
 }
