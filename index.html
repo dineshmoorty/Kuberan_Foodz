@@ -8,9 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
-  <body class="flex flex-col min-h-screen">
+  <body class="flex flex-col min-h-screen" data-page="home">
     <!-- Header -->
-    <header class="bg-[#D97A2B] text-white p-4">
+    <header class="site-header fixed top-0 left-0 right-0 z-50 bg-[#D97A2B] text-white p-4 shadow-lg">
       <div class="container mx-auto flex items-center justify-between gap-4">
         <div class="flex items-center space-x-4">
           <img
@@ -20,74 +20,70 @@
           />
           <h1 class="text-2xl font-bold">Kuberan Foodz</h1>
         </div>
-        <button
-          id="nav-toggle"
-          class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded bg-[#6FAF4F] text-white hover:bg-[#5aa64a]"
-          aria-label="Toggle navigation"
-          aria-expanded="false"
-        >
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+        <div class="flex items-center gap-3">
+          <button
+            id="nav-toggle"
+            class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded bg-[#6FAF4F] text-white hover:bg-[#5aa64a]"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
-        </button>
-        <nav
-          id="nav-panel"
-          class="fixed inset-y-0 right-0 z-50 w-4/5 max-w-xs transform translate-x-full bg-[#D97A2B] p-6 shadow-2xl transition-transform duration-300 ease-out md:static md:translate-x-0 md:w-auto md:bg-transparent md:p-0 md:shadow-none"
-        >
-          <div class="flex items-center justify-between mb-6 md:hidden">
-            <span class="text-lg font-semibold">Menu</span>
-            <button
-              id="nav-close"
-              class="inline-flex h-10 w-10 items-center justify-center rounded bg-[#6FAF4F] text-white hover:bg-[#5aa64a]"
-              aria-label="Close navigation"
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
-            </button>
-          </div>
-          <ul
-            id="nav-menu"
-            class="flex flex-col gap-3 md:flex-row md:items-center md:gap-4"
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+          <nav
+            id="nav-panel"
+            class="fixed inset-y-0 right-0 z-50 w-4/5 max-w-xs transform translate-x-full bg-[#D97A2B] p-6 shadow-2xl transition-transform duration-300 ease-out md:static md:translate-x-0 md:w-auto md:bg-transparent md:p-0 md:shadow-none"
           >
-            <li>
-              <a href="./index.html" class="hover:underline active">Home</a>
-            </li>
-            <li>
-              <a href="./pages/menu.html" class="hover:underline">Menu</a>
-            </li>
-            <li>
-              <a href="./pages/dishes.html" class="hover:underline">Dishes</a>
-            </li>
-            <li>
-              <a href="./pages/cart.html" class="hover:underline">Cart</a>
-            </li>
-            <li><a href="#about" class="hover:underline">About</a></li>
-            <li><a href="#contact" class="hover:underline">Contact</a></li>
-          </ul>
-        </nav>
+            <div class="flex items-center justify-between mb-6 md:hidden">
+              <span class="text-lg font-semibold">Menu</span>
+              <button
+                id="nav-close"
+                class="inline-flex h-10 w-10 items-center justify-center rounded bg-[#6FAF4F] text-white hover:bg-[#5aa64a]"
+                aria-label="Close navigation"
+              >
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <ul
+              id="nav-menu"
+              class="flex flex-col gap-3 md:flex-row md:items-center md:gap-4"
+            >
+              <li>
+                <a href="./index.html" class="hover:underline active">Home</a>
+              </li>
+              <li>
+                <a href="./pages/dishes.html" class="hover:underline">Dishes</a>
+              </li>
+              <li><a href="#about" class="hover:underline">About</a></li>
+              <li><a href="#contact" class="hover:underline">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
       <div
         id="nav-backdrop"
@@ -96,43 +92,595 @@
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main class="pt-24">
       <!-- Hero Section -->
       <section
         class="relative bg-cover bg-center text-white"
         style="background-image: url(&quot;./assets/images/bg.jpg&quot;)"
       >
         <div class="absolute inset-0 bg-black/60"></div>
-        <div class="relative container mx-auto py-24 px-4 text-center">
-          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        <div class="relative container mx-auto px-4 py-24 text-center">
+          <h2 class="animate-fade-up text-4xl font-bold mb-4 md:text-5xl">
             Welcome to Kuberan Foodz
           </h2>
-          <p class="max-w-2xl mx-auto text-lg mb-8 text-gray-100">
+          <p class="animate-fade-up animation-delay-1 mx-auto mb-8 max-w-2xl text-lg text-gray-100">
             Experience the best of Indian cuisine with our delicious dishes and
             exceptional service.
           </p>
-          <div class="flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <div class="animate-fade-up animation-delay-2 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <a
-              href="#"
-              class="inline-flex items-center justify-center bg-[#6FAF4F] px-6 py-3 rounded text-white font-semibold shadow-lg shadow-[#6FAF4F]/30 hover:bg-[#5aa64a] transition"
+              href="https://wa.me/919488270932"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover-lift inline-flex items-center justify-center rounded bg-[#6FAF4F] px-6 py-3 text-white font-semibold shadow-lg shadow-[#6FAF4F]/30 transition hover:bg-[#5aa64a]"
               >WhatsApp</a
             >
             <a
-              href="#"
-              class="inline-flex items-center justify-center bg-[#D97A2B] px-6 py-3 rounded text-white font-semibold shadow-lg shadow-[#D97A2B]/30 hover:bg-[#c66b24] transition"
+              href="https://www.zomato.com/madurai/shri-kuberan-tiffen-home-periyar"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover-lift inline-flex items-center justify-center rounded bg-[#D97A2B] px-6 py-3 text-white font-semibold shadow-lg shadow-[#D97A2B]/30 transition hover:bg-[#c66b24]"
               >Zomato</a
             >
           </div>
         </div>
       </section>
+
+      <!-- menu section -->
+      <section class="section-anchor bg-[#FFF7ED]">
+        <div class="container mx-auto px-4 py-12">
+          <h2 class="animate-fade-up mb-3 text-center text-3xl font-bold text-[#7A3D12]">
+            Our Menu Categories
+          </h2>
+          <p class="animate-fade-up animation-delay-1 mx-auto mb-8 max-w-2xl text-center text-gray-700">
+            Pick a category to explore our dishes. Each item comes with a short
+            description so customers can quickly see what makes it special.
+          </p>
+          <div
+            id="menu-filters"
+            class="mb-10 flex flex-wrap items-center justify-center gap-3"
+          >
+            <button
+              type="button"
+              data-category="all"
+              class="menu-filter hover-lift rounded-full bg-[#D97A2B] px-5 py-2 text-sm font-semibold text-white shadow transition hover:bg-[#c66b24]"
+            >
+              All Dishes
+            </button>
+            <button
+              type="button"
+              data-category="tiffen"
+              class="menu-filter hover-lift rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#7A3D12] shadow transition hover:bg-[#FDE7D3]"
+            >
+              Tiffen
+            </button>
+            <button
+              type="button"
+              data-category="rice"
+              class="menu-filter hover-lift rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#7A3D12] shadow transition hover:bg-[#FDE7D3]"
+            >
+              Rice
+            </button>
+            <button
+              type="button"
+              data-category="biriyani"
+              class="menu-filter hover-lift rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#7A3D12] shadow transition hover:bg-[#FDE7D3]"
+            >
+              Biriyani
+            </button>
+          </div>
+
+          <div id="menu-items" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <article
+              data-category="tiffen"
+              class="menu-card hover-lift animate-fade-up overflow-hidden rounded-2xl bg-white shadow-lg"
+            >
+              <img
+                src="./assets/dishes/idly.jpg"
+                alt="Soft idly served fresh"
+                class="h-56 w-full object-cover"
+              />
+              <div class="p-6">
+                <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-[#6FAF4F]">
+                  Tiffen
+                </p>
+                <h3 class="mb-3 text-2xl font-bold text-[#D97A2B]">Idly</h3>
+                <p class="text-gray-700">
+                  Soft and fluffy idly made fresh for a light and comforting
+                  meal that pairs perfectly with chutney and sambar.
+                </p>
+              </div>
+            </article>
+
+            <article
+              data-category="tiffen"
+              class="menu-card hover-lift animate-fade-up animation-delay-1 overflow-hidden rounded-2xl bg-white shadow-lg"
+            >
+              <img
+                src="./assets/dishes/dosai.jpg"
+                alt="Crispy dosai on a plate"
+                class="h-56 w-full object-cover"
+              />
+              <div class="p-6">
+                <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-[#6FAF4F]">
+                  Tiffen
+                </p>
+                <h3 class="mb-3 text-2xl font-bold text-[#D97A2B]">Dosai</h3>
+                <p class="text-gray-700">
+                  Golden and crispy dosai with classic South Indian flavor,
+                  served as a tasty breakfast or evening favorite.
+                </p>
+              </div>
+            </article>
+
+            <article
+              data-category="tiffen"
+              class="menu-card hover-lift animate-fade-up animation-delay-2 overflow-hidden rounded-2xl bg-white shadow-lg"
+            >
+              <img
+                src="./assets/dishes/venpongal.jpg"
+                alt="Hot venpongal with traditional flavor"
+                class="h-56 w-full object-cover"
+              />
+              <div class="p-6">
+                <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-[#6FAF4F]">
+                  Tiffen
+                </p>
+                <h3 class="mb-3 text-2xl font-bold text-[#D97A2B]">
+                  Ven Pongal
+                </h3>
+                <p class="text-gray-700">
+                  Creamy ven pongal cooked with pepper and ghee for a warm,
+                  satisfying dish that feels homely and rich.
+                </p>
+              </div>
+            </article>
+
+            <article
+              data-category="tiffen"
+              class="menu-card hover-lift animate-fade-up overflow-hidden rounded-2xl bg-white shadow-lg"
+            >
+              <img
+                src="./assets/dishes/chappathi.jpg"
+                alt="Fresh chappathi ready to serve"
+                class="h-56 w-full object-cover"
+              />
+              <div class="p-6">
+                <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-[#6FAF4F]">
+                  Tiffen
+                </p>
+                <h3 class="mb-3 text-2xl font-bold text-[#D97A2B]">
+                  Chappathi
+                </h3>
+                <p class="text-gray-700">
+                  Soft chappathi prepared fresh and ideal for a simple, filling
+                  meal with kurma, gravy, or side dishes.
+                </p>
+              </div>
+            </article>
+
+            <article
+              data-category="rice"
+              class="menu-card hover-lift animate-fade-up animation-delay-1 overflow-hidden rounded-2xl bg-white shadow-lg"
+            >
+              <img
+                src="./assets/dishes/tomato_rice.jpg"
+                alt="Spicy tomato rice"
+                class="h-56 w-full object-cover"
+              />
+              <div class="p-6">
+                <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-[#6FAF4F]">
+                  Rice
+                </p>
+                <h3 class="mb-3 text-2xl font-bold text-[#D97A2B]">
+                  Tomato Rice
+                </h3>
+                <p class="text-gray-700">
+                  Tangy and flavorful tomato rice with a rich masala taste that
+                  brings bright color and comfort to every serving.
+                </p>
+              </div>
+            </article>
+
+            <article
+              data-category="rice"
+              class="menu-card hover-lift animate-fade-up animation-delay-2 overflow-hidden rounded-2xl bg-white shadow-lg"
+            >
+              <img
+                src="./assets/dishes/lemon_rice.jpg"
+                alt="Tangy lemon rice"
+                class="h-56 w-full object-cover"
+              />
+              <div class="p-6">
+                <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-[#6FAF4F]">
+                  Rice
+                </p>
+                <h3 class="mb-3 text-2xl font-bold text-[#D97A2B]">
+                  Lemon Rice
+                </h3>
+                <p class="text-gray-700">
+                  Fresh and zesty lemon rice with a balanced citrus flavor that
+                  makes it refreshing, simple, and easy to enjoy.
+                </p>
+              </div>
+            </article>
+
+            <article
+              data-category="rice"
+              class="menu-card hover-lift animate-fade-up overflow-hidden rounded-2xl bg-white shadow-lg"
+            >
+              <img
+                src="./assets/dishes/malli_rice.jpg"
+                alt="Fresh malli rice"
+                class="h-56 w-full object-cover"
+              />
+              <div class="p-6">
+                <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-[#6FAF4F]">
+                  Rice
+                </p>
+                <h3 class="mb-3 text-2xl font-bold text-[#D97A2B]">
+                  Malli Rice
+                </h3>
+                <p class="text-gray-700">
+                  Fragrant malli rice with herb-filled freshness and a gentle
+                  spice note that gives a unique South Indian touch.
+                </p>
+              </div>
+            </article>
+
+            <article
+              data-category="biriyani"
+              class="menu-card hover-lift animate-fade-up animation-delay-1 overflow-hidden rounded-2xl bg-white shadow-lg"
+            >
+              <img
+                src="./assets/dishes/mushroom_biriyani.jpg"
+                alt="Aromatic mushroom biriyani"
+                class="h-56 w-full object-cover"
+              />
+              <div class="p-6">
+                <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-[#6FAF4F]">
+                  Biriyani
+                </p>
+                <h3 class="mb-3 text-2xl font-bold text-[#D97A2B]">
+                  Mushroom Biriyani
+                </h3>
+                <p class="text-gray-700">
+                  Aromatic mushroom biriyani layered with masala and long-grain
+                  rice for a hearty dish full of flavor and richness.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- why choose us -->
+      <section class="section-anchor bg-white">
+        <div class="container mx-auto px-4 py-14">
+          <div class="mx-auto max-w-3xl text-center">
+            <p class="animate-fade-up mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#6FAF4F]">
+              Why Choose Us
+            </p>
+            <h2 class="animate-fade-up animation-delay-1 mb-4 text-3xl font-bold text-[#7A3D12]">
+              Homemade Food You Can Trust
+            </h2>
+            <p class="animate-fade-up animation-delay-2 text-gray-700">
+              We serve food with a homemade touch, careful preparation, and a
+              focus on quality that customers have trusted for the last three
+              years.
+            </p>
+          </div>
+
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            <article class="hover-lift animate-fade-up rounded-2xl bg-[#FFF7ED] p-6 shadow-md">
+              <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#D97A2B] text-xl font-bold text-white">
+                1
+              </div>
+              <h3 class="mb-3 text-xl font-bold text-[#7A3D12]">
+                Purely Homemade Dishes
+              </h3>
+              <p class="text-gray-700">
+                Every dish is prepared with a homemade style, giving you the
+                familiar taste, warmth, and care of food made fresh with heart.
+              </p>
+            </article>
+
+            <article class="hover-lift animate-fade-up animation-delay-1 rounded-2xl bg-[#FFF7ED] p-6 shadow-md">
+              <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#6FAF4F] text-xl font-bold text-white">
+                2
+              </div>
+              <h3 class="mb-3 text-xl font-bold text-[#7A3D12]">
+                Clean And Hygienic Batter
+              </h3>
+              <p class="text-gray-700">
+                Our batter is prepared at home with clean and hygienic methods,
+                making every idly and dosai safe to eat and fresh to enjoy.
+              </p>
+            </article>
+
+            <article class="hover-lift animate-fade-up animation-delay-2 rounded-2xl bg-[#FFF7ED] p-6 shadow-md">
+              <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#D97A2B] text-xl font-bold text-white">
+                3
+              </div>
+              <h3 class="mb-3 text-xl font-bold text-[#7A3D12]">
+                5000+ Idly Sales In 3 Years
+              </h3>
+              <p class="text-gray-700">
+                Over the last three years, we have sold more than 5000 idlies,
+                a proud sign of customer love, repeat orders, and trust in our
+                quality.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Us -->
+      <section id="about" class="section-anchor bg-[#FFF7ED]">
+        <div class="container mx-auto px-4 py-14">
+          <div class="grid items-center gap-10 lg:grid-cols-2">
+            <div class="animate-fade-up">
+              <p class="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#6FAF4F]">
+                About Us
+              </p>
+              <h2 class="mb-5 text-3xl font-bold text-[#7A3D12]">
+                Serving Homemade Food With Heart
+              </h2>
+              <p class="mb-4 text-gray-700">
+                Kuberan Foodz was started with a simple goal: to serve tasty,
+                homemade-style food that people can enjoy every day with
+                confidence. We focus on familiar South Indian favorites made
+                with care, balanced flavor, and clean preparation.
+              </p>
+              <p class="mb-4 text-gray-700">
+                From soft idly and crispy dosai to comforting rice varieties
+                and flavorful biriyani, every dish is prepared to give customers
+                the feeling of fresh food made with attention and quality.
+              </p>
+              <p class="text-gray-700">
+                Our journey over the last three years has been built on customer
+                trust, repeat support, and a love for simple food done right.
+              </p>
+            </div>
+
+            <div class="grid gap-5 sm:grid-cols-2">
+              <article class="hover-lift animate-fade-up animation-delay-1 rounded-2xl bg-white p-6 shadow-md">
+                <h3 class="mb-3 text-xl font-bold text-[#D97A2B]">
+                  Homemade Taste
+                </h3>
+                <p class="text-gray-700">
+                  Every item is made with a home-style approach for comfort,
+                  freshness, and authentic local flavor.
+                </p>
+              </article>
+
+              <article class="hover-lift animate-fade-up animation-delay-2 rounded-2xl bg-white p-6 shadow-md">
+                <h3 class="mb-3 text-xl font-bold text-[#D97A2B]">
+                  Quality First
+                </h3>
+                <p class="text-gray-700">
+                  We give importance to clean cooking, good ingredients, and
+                  reliable preparation in every batch.
+                </p>
+              </article>
+
+              <article class="hover-lift animate-fade-up rounded-2xl bg-white p-6 shadow-md">
+                <h3 class="mb-3 text-xl font-bold text-[#D97A2B]">
+                  Trusted By Customers
+                </h3>
+                <p class="text-gray-700">
+                  Customer support over the years has helped Kuberan Foodz grow
+                  with confidence and consistency.
+                </p>
+              </article>
+
+              <article class="hover-lift animate-fade-up animation-delay-1 rounded-2xl bg-white p-6 shadow-md">
+                <h3 class="mb-3 text-xl font-bold text-[#D97A2B]">
+                  Everyday Favorites
+                </h3>
+                <p class="text-gray-700">
+                  Our menu is built around dishes people love to eat again and
+                  again, from breakfast to full meals.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- contact us -->
+      <section id="contact" class="section-anchor bg-white">
+        <div class="container mx-auto px-4 py-14">
+          <div class="mx-auto max-w-3xl text-center">
+            <p class="animate-fade-up mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#6FAF4F]">
+              Contact Us
+            </p>
+            <h2 class="animate-fade-up animation-delay-1 mb-4 text-3xl font-bold text-[#7A3D12]">
+              Reach Out For Orders And Enquiries
+            </h2>
+            <p class="animate-fade-up animation-delay-2 text-gray-700">
+              We're happy to connect for daily orders, menu enquiries, and food
+              updates. Reach Kuberan Foodz through your preferred platform and
+              enjoy homemade dishes prepared with care.
+            </p>
+          </div>
+
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            <article class="hover-lift animate-fade-up rounded-2xl bg-[#FFF7ED] p-6 text-center shadow-md">
+              <h3 class="mb-3 text-xl font-bold text-[#D97A2B]">
+                WhatsApp Orders
+              </h3>
+              <p class="text-gray-700">
+                Message us on WhatsApp for quick order support, dish
+                availability, and easy communication.
+              </p>
+            </article>
+
+            <article class="hover-lift animate-fade-up animation-delay-1 rounded-2xl bg-[#FFF7ED] p-6 text-center shadow-md">
+              <h3 class="mb-3 text-xl font-bold text-[#D97A2B]">
+                Zomato Delivery
+              </h3>
+              <p class="text-gray-700">
+                Order through Zomato to enjoy your favorite dishes with a smooth
+                and convenient delivery experience.
+              </p>
+            </article>
+
+            <article class="hover-lift animate-fade-up animation-delay-2 rounded-2xl bg-[#FFF7ED] p-6 text-center shadow-md">
+              <h3 class="mb-3 text-xl font-bold text-[#D97A2B]">
+                Customer Enquiry
+              </h3>
+              <p class="text-gray-700">
+                Contact us for menu details, special requests, and more
+                information about our homemade food offerings.
+              </p>
+            </article>
+          </div>
+
+          <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="https://wa.me/919488270932"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover-lift inline-flex items-center justify-center rounded-full bg-[#6FAF4F] px-6 py-3 font-semibold text-white shadow-lg shadow-[#6FAF4F]/30 transition hover:bg-[#5aa64a]"
+            >
+              Contact on WhatsApp
+            </a>
+            <a
+              href="https://www.zomato.com/madurai/shri-kuberan-tiffen-home-periyar"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover-lift inline-flex items-center justify-center rounded-full bg-[#D97A2B] px-6 py-3 font-semibold text-white shadow-lg shadow-[#D97A2B]/30 transition hover:bg-[#c66b24]"
+            >
+              Order on Zomato
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
 
+    <!-- Cart Button -->
+    <a
+      href="./pages/cart.html"
+      class="hover-lift fixed bottom-6 right-6 z-50 inline-flex items-center gap-3 rounded-full bg-[#6FAF4F] px-5 py-3 text-white shadow-xl shadow-black/25 transition hover:bg-[#5aa64a] focus:outline-none focus:ring-4 focus:ring-[#6FAF4F]/40"
+      aria-label="Open cart"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M3 3h2l.4 2m0 0L7 13h10l2-8H5.4zM7 13l-1 2h12m-9 4a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"
+        ></path>
+      </svg>
+      <span class="font-semibold">Cart</span>
+    </a>
+
     <!-- Footer -->
-    <footer class="bg-[#D97A2B] text-white p-4 mt-auto">
-      <div class="container mx-auto text-center">
-        <p>&copy;2026 Kuberan Foods Developed by Dineshmoorthi..</p>
+    <footer class="mt-auto bg-[#7A3D12] px-4 py-10 text-white">
+      <div class="container mx-auto grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        <div>
+          <h3 class="mb-3 text-2xl font-bold">Kuberan Foodz</h3>
+          <p class="mb-4 text-sm leading-6 text-[#F8E3CF]">
+            Homemade dishes prepared with care, clean ingredients, and trusted
+            quality for everyday tiffen and meals.
+          </p>
+          <a
+            href="https://www.google.com/maps/place/SHRI+KUBERAN+TIFFEN+HOME/data=!4m2!3m1!1s0x0:0x9ef6e6fab2e9657b?sa=X&ved=1t:2428&hl=en&ictx=111"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-[#6FAF4F] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#5aa64a]"
+          >
+            View Location
+          </a>
+        </div>
+
+        <div>
+          <h4 class="mb-3 text-lg font-bold">Contact Info</h4>
+          <ul class="space-y-3 text-sm text-[#F8E3CF]">
+            <li>
+              <a href="tel:+919488270932" class="hover:text-white">
+                +91 94882 70932
+              </a>
+            </li>
+            <li>
+              <a href="mailto:storeskuberan@gmail.com" class="hover:text-white">
+                storeskuberan@gmail.com
+              </a>
+            </li>
+            <li>
+              <span>SHRI KUBERAN TIFFEN HOME, Madurai</span>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/919488270932"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-white"
+              >
+                WhatsApp Orders
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="mb-3 text-lg font-bold">Quick Links</h4>
+          <ul class="space-y-3 text-sm text-[#F8E3CF]">
+            <li>
+              <a
+                href="https://www.zomato.com/madurai/shri-kuberan-tiffen-home-periyar"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-white"
+              >
+                Order on Zomato
+              </a>
+            </li>
+            <li>
+              <a href="./pages/dishes.html" class="hover:text-white">
+                Browse Dishes
+              </a>
+            </li>
+            <li>
+              <a href="./pages/cart.html" class="hover:text-white">
+                View Cart
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="mb-3 text-lg font-bold">Business Details</h4>
+          <ul class="space-y-3 text-sm text-[#F8E3CF]">
+            <li>FSSAI No: 22422577000137</li>
+            <li>MSME No: UDYAM-TN-12-0051633</li>
+            <li>
+              Developed by
+              <a
+                href="https://dineshmoorty.github.io/Portfolio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-semibold text-white hover:underline"
+              >
+                Dineshmoorthi
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container mx-auto mt-8 border-t border-white/15 pt-4 text-center text-sm text-[#F8E3CF]">
+        <p>&copy;2026 Kuberan Foodz. All rights reserved.</p>
       </div>
     </footer>
     <script src="./scripts/navbar.js"></script>
+    <script src="./scripts/menu-filter.js"></script>
   </body>
 </html>

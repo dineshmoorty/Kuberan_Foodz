@@ -3,43 +3,301 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kuberan Foodz</title>
-    <link rel="icon" href="../assets/images/Logo.png" type="image/png" /></link>
+    <title>Kuberan Foodz | Cart</title>
+    <link rel="icon" href="../assets/images/Logo.png" type="image/png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/styles.css" />
   </head>
-  <body class="flex flex-col min-h-screen">
-    <!-- Header -->
-    <header class="bg-[#D97A2B] text-white p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <div class="flex items-center space-x-4">
-          <img src="../assets/images/Logo.png" alt="Kuberan Foodz Logo" class="h-10" />
+  <body class="flex min-h-screen flex-col" data-page="cart">
+    <header class="site-header fixed left-0 right-0 top-0 z-50 bg-[#D97A2B] p-4 text-white shadow-lg">
+      <div class="container mx-auto flex items-center justify-between gap-4">
+        <a href="../index.html" class="flex items-center space-x-4">
+          <img
+            src="../assets/images/Logo.png"
+            alt="Kuberan Foodz Logo"
+            class="h-10"
+          />
           <h1 class="text-2xl font-bold">Kuberan Foodz</h1>
+        </a>
+        <div class="flex items-center gap-4">
+          <nav>
+            <ul class="flex items-center gap-4 text-sm font-medium md:text-base">
+              <li><a href="../index.html" class="hover:underline">Home</a></li>
+              <li><a href="./dishes.html" class="hover:underline">Dishes</a></li>
+              <li>
+                <a
+                  href="./cart.html"
+                  class="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 font-semibold underline"
+                >
+                  <span>Cart</span>
+                  <span
+                    data-cart-count
+                    class="hidden min-w-6 rounded-full bg-[#6FAF4F] px-2 py-0.5 text-center text-xs font-bold text-white"
+                  >
+                    0
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <nav>
-          <ul class="flex space-x-4">
-            <li><a href="../index.html" class="hover:underline">Home</a></li>
-            <li><a href="../pages/menu.html" class="hover:underline">Menu</a></li>
-            <li><a href="../pages/dishes.html" class="hover:underline active">Dishes</a></li>
-            <li><a href="../pages/cart.html" class="hover:underline active">Cart</a></li>
-            <li><a href="#about" class="hover:underline">About Us</a></li>
-            <li><a href="#contact" class="hover:underline">Contact</a></li>
-          </ul>
-        </nav>
       </div>
     </header>
 
-    <!-- Main Content -->
+    <main class="pt-24">
+      <section class="bg-[#FFF7ED]">
+        <div class="container mx-auto px-4 py-14">
+          <div class="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p class="mb-2 text-sm font-semibold uppercase tracking-[0.3em] text-[#6FAF4F]">
+                Your Cart
+              </p>
+              <h2 class="text-3xl font-bold text-[#7A3D12]">
+                Review Your Order
+              </h2>
+            </div>
+            <a
+              href="./dishes.html"
+              class="hover-lift inline-flex items-center justify-center rounded-full bg-[#D97A2B] px-5 py-3 font-semibold text-white shadow-lg shadow-[#D97A2B]/25 transition hover:bg-[#c66b24]"
+            >
+              Add More Dishes
+            </a>
+          </div>
 
-    <!-- Footer -->
-    <footer class="bg-[#D97A2B] text-white p-4 mt-auto">
-      <div class="container mx-auto text-center">
-        <p>
-          &copy;2026 Kuberan Foods managed by Shri Kuberan Tiifen Home Developed
-          by Dineshmoorthi..
-        </p>
+          <div class="grid gap-8 xl:grid-cols-[1.7fr_0.9fr]">
+            <div>
+              <div
+                id="cart-empty"
+                class="rounded-3xl bg-white p-10 text-center shadow-lg"
+              >
+                <h3 class="mb-3 text-2xl font-bold text-[#7A3D12]">
+                  Your cart is empty
+                </h3>
+                <p class="mb-6 text-gray-700">
+                  Add dishes from the order page to see them here with quantity
+                  and total amount.
+                </p>
+                <a
+                  href="./dishes.html"
+                  class="hover-lift inline-flex items-center justify-center rounded-full bg-[#6FAF4F] px-6 py-3 font-semibold text-white shadow-lg shadow-[#6FAF4F]/25 transition hover:bg-[#5aa64a]"
+                >
+                  Go To Dishes
+                </a>
+              </div>
+
+              <div id="cart-items" class="space-y-6"></div>
+            </div>
+
+            <aside
+              id="cart-summary"
+              class="hidden h-fit rounded-3xl bg-white p-6 shadow-lg"
+            >
+              <h3 class="mb-6 text-2xl font-bold text-[#7A3D12]">
+                Order Summary
+              </h3>
+
+              <div class="mb-6 space-y-4 rounded-2xl bg-[#FFF7ED] p-4">
+                <h4 class="text-lg font-bold text-[#7A3D12]">
+                  Customer Details
+                </h4>
+                <div>
+                  <label
+                    for="customer-name"
+                    class="mb-2 block text-sm font-semibold text-[#7A3D12]"
+                  >
+                    Name
+                  </label>
+                  <input
+                    id="customer-name"
+                    type="text"
+                    class="w-full rounded-xl border border-[#F1C89A] px-4 py-3 text-gray-800 outline-none transition focus:border-[#D97A2B]"
+                    placeholder="Enter customer name"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="customer-mobile"
+                    class="mb-2 block text-sm font-semibold text-[#7A3D12]"
+                  >
+                    Mobile Number
+                  </label>
+                  <input
+                    id="customer-mobile"
+                    type="tel"
+                    class="w-full rounded-xl border border-[#F1C89A] px-4 py-3 text-gray-800 outline-none transition focus:border-[#D97A2B]"
+                    placeholder="Enter mobile number"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="customer-address"
+                    class="mb-2 block text-sm font-semibold text-[#7A3D12]"
+                  >
+                    Address
+                  </label>
+                  <textarea
+                    id="customer-address"
+                    rows="3"
+                    class="w-full rounded-xl border border-[#F1C89A] px-4 py-3 text-gray-800 outline-none transition focus:border-[#D97A2B]"
+                    placeholder="Enter delivery address"
+                  ></textarea>
+                </div>
+                <p
+                  id="customer-form-note"
+                  class="text-sm text-gray-500"
+                >
+                  Fill these details so the order reaches you correctly.
+                </p>
+              </div>
+
+              <div class="space-y-4 text-gray-700">
+                <div class="flex items-center justify-between">
+                  <span>Subtotal</span>
+                  <span id="cart-subtotal" class="font-semibold text-[#7A3D12]">
+                    Rs. 0
+                  </span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span>Delivery</span>
+                  <span class="font-semibold text-[#7A3D12]">Rs. 0</span>
+                </div>
+                <div class="border-t border-[#F5D4B5] pt-4">
+                  <div class="flex items-center justify-between">
+                    <span class="text-lg font-bold text-[#7A3D12]">Total</span>
+                    <span id="cart-grand-total" class="text-lg font-bold text-[#D97A2B]">
+                      Rs. 0
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                id="clear-cart"
+                type="button"
+                class="mt-8 inline-flex w-full items-center justify-center rounded-full border border-[#D97A2B] px-5 py-3 font-semibold text-[#D97A2B] transition hover:bg-[#FFF7ED]"
+              >
+                Clear Cart
+              </button>
+
+              <a
+                id="order-whatsapp"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-flex w-full items-center justify-center rounded-full bg-[#6FAF4F] px-5 py-3 font-semibold text-white shadow-lg shadow-[#6FAF4F]/25 transition hover:bg-[#5aa64a]"
+              >
+                Order on WhatsApp
+              </a>
+              <p
+                id="order-whatsapp-note"
+                class="mt-3 text-sm text-gray-500"
+              >
+                Add your WhatsApp number in the cart script to activate direct
+                order sending.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-auto bg-[#7A3D12] px-4 py-10 text-white">
+      <div class="container mx-auto grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        <div>
+          <h3 class="mb-3 text-2xl font-bold">Kuberan Foodz</h3>
+          <p class="mb-4 text-sm leading-6 text-[#F8E3CF]">
+            Homemade dishes prepared with care, clean ingredients, and trusted
+            quality for everyday tiffen and meals.
+          </p>
+          <a
+            href="https://www.google.com/maps/place/SHRI+KUBERAN+TIFFEN+HOME/data=!4m2!3m1!1s0x0:0x9ef6e6fab2e9657b?sa=X&ved=1t:2428&hl=en&ictx=111"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-[#6FAF4F] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#5aa64a]"
+          >
+            View Location
+          </a>
+        </div>
+
+        <div>
+          <h4 class="mb-3 text-lg font-bold">Contact Info</h4>
+          <ul class="space-y-3 text-sm text-[#F8E3CF]">
+            <li>
+              <a href="tel:+919488270932" class="hover:text-white">
+                +91 94882 70932
+              </a>
+            </li>
+            <li>
+              <a href="mailto:storeskuberan@gmail.com" class="hover:text-white">
+                storeskuberan@gmail.com
+              </a>
+            </li>
+            <li>
+              <span>SHRI KUBERAN TIFFEN HOME, Madurai</span>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/919488270932"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-white"
+              >
+                WhatsApp Orders
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="mb-3 text-lg font-bold">Quick Links</h4>
+          <ul class="space-y-3 text-sm text-[#F8E3CF]">
+            <li>
+              <a href="../index.html" class="hover:text-white">Home</a>
+            </li>
+            <li>
+              <a href="./dishes.html" class="hover:text-white">
+                Browse Dishes
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.zomato.com/madurai/shri-kuberan-tiffen-home-periyar"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-white"
+              >
+                Order on Zomato
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="mb-3 text-lg font-bold">Business Details</h4>
+          <ul class="space-y-3 text-sm text-[#F8E3CF]">
+            <li>FSSAI No: 22422577000137</li>
+            <li>MSME No: UDYAM-TN-12-0051633</li>
+            <li>
+              Developed by
+              <a
+                href="https://dineshmoorty.github.io/Portfolio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-semibold text-white hover:underline"
+              >
+                Dineshmoorthi
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container mx-auto mt-8 border-t border-white/15 pt-4 text-center text-sm text-[#F8E3CF]">
+        <p>&copy;2026 Kuberan Foodz. All rights reserved.</p>
       </div>
     </footer>
 
+    <script src="../scripts/cart.js"></script>
+    <script src="../scripts/cart-page.js"></script>
   </body>
 </html>
