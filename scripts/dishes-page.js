@@ -1,6 +1,7 @@
 const dishesGrid = document.getElementById("dishes-grid");
 const dishesFeedback = document.getElementById("cart-feedback");
 const dishesFeedbackMessage = document.getElementById("cart-feedback-message");
+const cartAddSound = document.getElementById("cart-add-sound");
 
 function translate(key, params = {}, fallback = "") {
   if (window.KuberanI18n?.t) {
@@ -53,8 +54,8 @@ function showFeedback(message) {
 
   window.clearTimeout(showFeedback.timeoutId);
   showFeedback.timeoutId = window.setTimeout(() => {
-    dishesFeedback.classList.add("opacity-0", "translate-x-6");
-    dishesFeedback.classList.remove("opacity-100", "translate-x-0");
+    dishesFeedback.classList.add("opacity-0", "translate-y-6");
+    dishesFeedback.classList.remove("opacity-100", "translate-y-0");
   }, 1800);
 }
 
@@ -65,6 +66,25 @@ function renderDishesPage() {
     .map(createDishCard)
     .join("");
   window.dispatchEvent(new Event("kuberan-translate-refresh"));
+}
+
+function playCartAddSound() {
+  if (!cartAddSound) {
+    window.KuberanSounds?.play("cart");
+    return;
+  }
+
+  try {
+    cartAddSound.currentTime = 0;
+    const playPromise = cartAddSound.play();
+    if (playPromise?.catch) {
+      playPromise.catch(() => {
+        window.KuberanSounds?.play("cart");
+      });
+    }
+  } catch {
+    window.KuberanSounds?.play("cart");
+  }
 }
 
 if (dishesGrid && window.KuberanCart) {
@@ -79,6 +99,7 @@ if (dishesGrid && window.KuberanCart) {
     if (!dish) return;
 
     window.KuberanCart.addToCart(dishId);
+    playCartAddSound();
     showFeedback(
       translate(
         "dishes.feedback.added_to_cart",

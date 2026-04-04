@@ -1,4 +1,4 @@
-const CACHE_NAME = "kuberan-foodz-v1";
+const CACHE_NAME = "kuberan-foodz-v2";
 const APP_SHELL = [
   "./index.html",
   "./manifest.webmanifest",
@@ -9,6 +9,8 @@ const APP_SHELL = [
   "./assets/images/bg.jpg",
   "./assets/images/bg_2.jpg",
   "./assets/images/empty_cart.jpg",
+  "./assets/mp3/cart.mp3",
+  "./assets/mp3/whatsapp.mp3",
   "./assets/dishes/chappathi.jpg",
   "./assets/dishes/dosai.jpg",
   "./assets/dishes/idly.jpg",
@@ -24,6 +26,7 @@ const APP_SHELL = [
   "./scripts/cart.js",
   "./scripts/dishes-page.js",
   "./scripts/cart-page.js",
+  "./scripts/sounds.js",
   "./scripts/pwa.js"
 ];
 

@@ -29,6 +29,14 @@ function getCustomerDetails() {
   };
 }
 
+function sanitizeMobileInput() {
+  if (!customerMobileInput) return;
+
+  customerMobileInput.value = customerMobileInput.value
+    .replace(/\D/g, "")
+    .slice(0, 10);
+}
+
 function resetCustomerForm() {
   if (customerNameInput) customerNameInput.value = "";
   if (customerMobileInput) customerMobileInput.value = "";
@@ -109,9 +117,10 @@ function renderCartPage() {
   const items = window.KuberanCart.getDetailedCartItems();
   const subtotal = window.KuberanCart.getCartSubtotal();
   const customer = getCustomerDetails();
+  const isValidMobileNumber = customer.mobile.trim().length === 10;
   const hasCustomerDetails =
     customer.name.trim() &&
-    customer.mobile.trim() &&
+    isValidMobileNumber &&
     customer.address.trim();
   const whatsAppUrl = window.KuberanCart.getWhatsAppOrderLink(customer);
   const hasWhatsAppNumber = Boolean(window.KuberanCart.getWhatsAppNumber());
@@ -171,7 +180,7 @@ function renderCartPage() {
         : translate(
             "cart.whatsapp.fill_details",
             {},
-            "Please fill in customer name, mobile number, and address."
+            "Please fill in customer name, 10-digit mobile number, and address."
           )
       : translate(
           "cart.whatsapp.activate",
@@ -190,7 +199,7 @@ function renderCartPage() {
       : translate(
           "cart.customer.fill",
           {},
-          "Fill name, mobile number, and address before placing the order."
+          "Fill name, 10-digit mobile number, and address before placing the order."
         );
     customerFormNote.classList.toggle("text-red-500", !hasCustomerDetails);
     customerFormNote.classList.toggle("text-gray-500", Boolean(hasCustomerDetails));
@@ -232,7 +241,7 @@ if (cartItemsContainer && window.KuberanCart) {
     renderCartPage();
   });
 
-  orderWhatsAppLink?.addEventListener("click", (event) => {
+  orderWhatsAppLink?.addEventListener("click", async (event) => {
     const customer = getCustomerDetails();
     const whatsAppUrl = window.KuberanCart.getWhatsAppOrderLink(customer);
     if (!whatsAppUrl) {
@@ -242,14 +251,20 @@ if (cartItemsContainer && window.KuberanCart) {
     }
 
     event.preventDefault();
-    window.open(whatsAppUrl, "_blank", "noopener,noreferrer");
+    await window.KuberanSounds?.play("whatsapp");
+    window.setTimeout(() => {
+      window.open(whatsAppUrl, "_blank", "noopener,noreferrer");
+    }, 180);
     window.KuberanCart.clearCart();
     resetCustomerForm();
     renderCartPage();
   });
 
   [customerNameInput, customerMobileInput, customerAddressInput].forEach((field) => {
-    field?.addEventListener("input", renderCartPage);
+    field?.addEventListener("input", () => {
+      sanitizeMobileInput();
+      renderCartPage();
+    });
   });
 
   window.addEventListener("kuberan-language-change", renderCartPage);

@@ -58,7 +58,7 @@
           <button
             type="button"
             data-pwa-install
-            class="install-app-btn hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#6FAF4F] text-white ring-2 ring-white/25 shadow-xl shadow-[#6FAF4F]/30 transition hover:bg-[#5aa64a] sm:w-auto sm:gap-2 sm:px-4"
+            class="install-app-btn hidden h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#6FAF4F] text-white ring-2 ring-white/25 shadow-xl shadow-[#6FAF4F]/30 transition hover:bg-[#5aa64a] sm:w-auto sm:gap-2 sm:px-4"
             aria-label="Install app"
             title="Install App"
           >
@@ -182,6 +182,9 @@
                     id="customer-mobile"
                     type="tel"
                     class="w-full rounded-xl border border-[#F1C89A] px-4 py-3 text-gray-800 outline-none transition focus:border-[#D97A2B]"
+                    inputmode="numeric"
+                    maxlength="10"
+                    pattern="[0-9]{10}"
                     placeholder="Enter mobile number"
                   />
                 </div>
@@ -355,6 +358,7 @@
       </div>
     </footer>
 
+    <script src="../scripts/sounds.js"></script>
     <script src="../scripts/pwa.js"></script>
     <script src="../scripts/cart.js"></script>
     <script src="../scripts/cart-page.js"></script>
