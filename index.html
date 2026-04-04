@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kuberan Foodz</title>
+    <link rel="icon" href="./assets/images/Logo.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-[#D97A2B] text-white p-4">
+      <div class="container mx-auto flex items-center justify-between gap-4">
+        <div class="flex items-center space-x-4">
+          <img
+            src="./assets/images/Logo.png"
+            alt="Kuberan Foodz Logo"
+            class="h-10"
+          />
+          <h1 class="text-2xl font-bold">Kuberan Foodz</h1>
+        </div>
+        <button
+          id="nav-toggle"
+          class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded bg-[#6FAF4F] text-white hover:bg-[#5aa64a]"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+        <nav
+          id="nav-panel"
+          class="fixed inset-y-0 right-0 z-50 w-4/5 max-w-xs transform translate-x-full bg-[#D97A2B] p-6 shadow-2xl transition-transform duration-300 ease-out md:static md:translate-x-0 md:w-auto md:bg-transparent md:p-0 md:shadow-none"
+        >
+          <div class="flex items-center justify-between mb-6 md:hidden">
+            <span class="text-lg font-semibold">Menu</span>
+            <button
+              id="nav-close"
+              class="inline-flex h-10 w-10 items-center justify-center rounded bg-[#6FAF4F] text-white hover:bg-[#5aa64a]"
+              aria-label="Close navigation"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <ul
+            id="nav-menu"
+            class="flex flex-col gap-3 md:flex-row md:items-center md:gap-4"
+          >
+            <li>
+              <a href="./index.html" class="hover:underline active">Home</a>
+            </li>
+            <li>
+              <a href="./pages/menu.html" class="hover:underline">Menu</a>
+            </li>
+            <li>
+              <a href="./pages/dishes.html" class="hover:underline">Dishes</a>
+            </li>
+            <li>
+              <a href="./pages/cart.html" class="hover:underline">Cart</a>
+            </li>
+            <li><a href="#about" class="hover:underline">About</a></li>
+            <li><a href="#contact" class="hover:underline">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div
+        id="nav-backdrop"
+        class="fixed inset-0 z-40 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+      ></div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative bg-cover bg-center text-white"
+        style="background-image: url(&quot;./assets/images/bg.jpg&quot;)"
+      >
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative container mx-auto py-24 px-4 text-center">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Welcome to Kuberan Foodz
+          </h2>
+          <p class="max-w-2xl mx-auto text-lg mb-8 text-gray-100">
+            Experience the best of Indian cuisine with our delicious dishes and
+            exceptional service.
+          </p>
+          <div class="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <a
+              href="#"
+              class="inline-flex items-center justify-center bg-[#6FAF4F] px-6 py-3 rounded text-white font-semibold shadow-lg shadow-[#6FAF4F]/30 hover:bg-[#5aa64a] transition"
+              >WhatsApp</a
+            >
+            <a
+              href="#"
+              class="inline-flex items-center justify-center bg-[#D97A2B] px-6 py-3 rounded text-white font-semibold shadow-lg shadow-[#D97A2B]/30 hover:bg-[#c66b24] transition"
+              >Zomato</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#D97A2B] text-white p-4 mt-auto">
+      <div class="container mx-auto text-center">
+        <p>&copy;2026 Kuberan Foods Developed by Dineshmoorthi..</p>
+      </div>
+    </footer>
+    <script src="./scripts/navbar.js"></script>
+  </body>
+</html>
