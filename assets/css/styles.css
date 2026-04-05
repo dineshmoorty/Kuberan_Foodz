@@ -1,4 +1,4 @@
-html {
+﻿html {
   scroll-behavior: smooth;
   scroll-padding-top: 6.5rem;
 }
@@ -68,6 +68,68 @@ body {
   animation-delay: 0.24s;
 }
 
+.site-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 60;
+  width: min(24rem, calc(100vw - 2rem));
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 20px 45px rgba(122, 61, 18, 0.22);
+  border: 1px solid rgba(217, 122, 43, 0.18);
+  transform: translate(-50%, -50%);
+  animation: popupCenterIn 0.35s ease both;
+}
+
+.site-popup__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.site-popup__close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 9999px;
+  background: rgba(17, 24, 39, 0.72);
+  color: #ffffff;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.site-popup__close:hover {
+  transform: scale(1.05);
+  background: rgba(17, 24, 39, 0.88);
+}
+
+.site-popup__close:focus-visible {
+  outline: 3px solid rgba(111, 175, 79, 0.55);
+  outline-offset: 2px;
+}
+
+@keyframes popupCenterIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 18px));
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -115,9 +177,25 @@ body {
   .hover-lift,
   .animate-fade-up,
   .install-app-btn,
-  .install-app-btn::after {
+  .install-app-btn::after,
+  .site-popup,
+  .site-popup__close {
     animation: none !important;
     transition: none !important;
+  }
+
+  .site-popup {
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .site-popup__close {
     transform: none !important;
   }
 }
+
+@media (max-width: 640px) {
+  .site-popup {
+    width: min(20rem, calc(100vw - 1.5rem));
+  }
+}
+

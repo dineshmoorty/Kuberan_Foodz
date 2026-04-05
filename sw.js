@@ -1,4 +1,4 @@
-const CACHE_NAME = "kuberan-foodz-v2";
+﻿const CACHE_NAME = "kuberan-foodz-v3";
 const APP_SHELL = [
   "./index.html",
   "./manifest.webmanifest",
@@ -9,6 +9,7 @@ const APP_SHELL = [
   "./assets/images/bg.jpg",
   "./assets/images/bg_2.jpg",
   "./assets/images/empty_cart.jpg",
+  "./assets/images/gas_error.png",
   "./assets/mp3/cart.mp3",
   "./assets/mp3/whatsapp.mp3",
   "./assets/dishes/chappathi.jpg",
@@ -27,7 +28,8 @@ const APP_SHELL = [
   "./scripts/dishes-page.js",
   "./scripts/cart-page.js",
   "./scripts/sounds.js",
-  "./scripts/pwa.js"
+  "./scripts/pwa.js",
+  "./scripts/site-popup.js"
 ];
 
 self.addEventListener("install", (event) => {
