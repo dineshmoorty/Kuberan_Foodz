@@ -199,3 +199,155 @@ body {
   }
 }
 
+.review-swiper {
+  position: relative;
+}
+
+.review-swiper__viewport {
+  overflow: hidden;
+  padding: 0.25rem 0;
+}
+
+.review-swiper__track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.55s ease;
+  will-change: transform;
+}
+
+.review-card {
+  flex: 0 0 100%;
+  min-height: 100%;
+  border: 1px solid rgba(217, 122, 43, 0.14);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  background:
+    radial-gradient(circle at top right, rgba(111, 175, 79, 0.18), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, #fff8ef 100%);
+  box-shadow: 0 18px 35px rgba(122, 61, 18, 0.08);
+}
+
+.review-card__stars {
+  margin-bottom: 1rem;
+  color: #d97a2b;
+  font-size: 1.125rem;
+  letter-spacing: 0.12em;
+}
+
+.review-card__text {
+  min-height: 7.5rem;
+  color: #374151;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.review-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: 1.5rem;
+}
+
+.review-card__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #d97a2b, #6faf4f);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(217, 122, 43, 0.2);
+}
+
+.review-card__name {
+  color: #7a3d12;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.review-card__meta {
+  margin-top: 0.2rem;
+  color: #6b7280;
+  font-size: 0.92rem;
+}
+
+.review-swiper__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #7a3d12;
+  box-shadow: 0 10px 20px rgba(122, 61, 18, 0.12);
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.review-swiper__button:hover {
+  transform: translateY(-2px);
+  background: #d97a2b;
+  color: #ffffff;
+}
+
+.review-swiper__button:focus-visible,
+.review-swiper__dot:focus-visible {
+  outline: 3px solid rgba(111, 175, 79, 0.4);
+  outline-offset: 2px;
+}
+
+.review-swiper__dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 0;
+  border-radius: 9999px;
+  background: rgba(217, 122, 43, 0.28);
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    width 0.25s ease;
+}
+
+.review-swiper__dot.is-active {
+  width: 2rem;
+  background: #d97a2b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-swiper__track,
+  .review-swiper__button,
+  .review-swiper__dot {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .review-card {
+    padding: 1.5rem;
+  }
+
+  .review-card__text {
+    min-height: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .review-card {
+    flex-basis: calc((100% - 1.5rem) / 2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .review-card {
+    flex-basis: calc((100% - 3rem) / 3);
+  }
+}
