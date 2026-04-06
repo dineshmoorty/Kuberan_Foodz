@@ -20,17 +20,17 @@ function createDishCard(dish) {
         class="h-56 w-full object-cover"
       />
       <div class="p-6">
-        <div class="mb-3 flex items-start justify-between gap-4">
+        <div class="mb-3 flex items-start justify-between gap-2">
           <div>
             <p class="mb-1 text-sm font-semibold uppercase tracking-wide text-[#6FAF4F]">
               ${dish.category}
             </p>
-            <h3 class="text-2xl font-bold text-[#7A3D12]">${dish.name}</h3>
+            <h1 class="text-xl font-bold text-[#7A3D12]">${dish.name}</h1>
           </div>
-          <span class="rounded-full bg-[#FFF7ED] px-3 py-1 text-sm font-semibold text-[#D97A2B]">
-            ${window.KuberanCart.formatPrice(dish.price)}
-          </span>
         </div>
+        <span class="rounded-full bg-[#FFF7ED] mt-2 mb-2 px-3 py-1 text-md font-bold text-[#D97A2B]">
+          ${window.KuberanCart.formatPrice(dish.price)}
+        </span>
         <p class="mb-5 text-gray-700">${dish.description}</p>
         <button
           type="button"
@@ -61,8 +61,7 @@ function showFeedback(message) {
 
 function renderDishesPage() {
   if (!dishesGrid || !window.KuberanCart) return;
-  dishesGrid.innerHTML = window.KuberanCart
-    .getLocalizedDishes()
+  dishesGrid.innerHTML = window.KuberanCart.getLocalizedDishes()
     .map(createDishCard)
     .join("");
   window.dispatchEvent(new Event("kuberan-translate-refresh"));
@@ -104,8 +103,8 @@ if (dishesGrid && window.KuberanCart) {
       translate(
         "dishes.feedback.added_to_cart",
         { name: dish.name },
-        `${dish.name} added to cart`
-      )
+        `${dish.name} added to cart`,
+      ),
     );
   });
 
