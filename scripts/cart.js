@@ -127,7 +127,7 @@ const KUBERAN_DISHES = [
     price: 10,
   },
    {
-    id: "idly-batter-1-2-cup",
+    id: "idlyBatter",
     name: "Batter 1/2 cup / மாவு 1/2 கப்",
     nameKey: "dish.idly_batter.name",
     category: "Tiffen",
@@ -138,7 +138,7 @@ const KUBERAN_DISHES = [
     price: 20,
   },
     {
-    id: "idly-batter-1-cup",
+    id: "idlyDosaiBatter",
     name: "Batter 1 cup / மாவு 1 கப்",
     nameKey: "dish.idly_batter.name",
     category: "Tiffen",
