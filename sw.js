@@ -1,15 +1,15 @@
-const CACHE_NAME = "kuberan-foodz-v4";
+const CACHE_NAME = "kuberan-foodz-v5";
 const APP_SHELL = [
   "./index.html",
   "./manifest.webmanifest",
-  "./assets/css/styles.css?v=20260406",
+  "./assets/css/output.css?v=20260407",
   "./assets/images/Logo.png",
   "./assets/images/icon-192.png",
   "./assets/images/icon-512.png",
   "./assets/images/bg.jpg",
   "./assets/images/bg_2.jpg",
   "./assets/images/empty_cart.jpg",
-  "./assets/images/opening.png",
+  "./assets/images/opening.jpg",
   "./assets/mp3/cart.mp3",
   "./assets/mp3/whatsapp.mp3",
   "./assets/dishes/chappathi.jpg",
@@ -84,4 +84,5 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+
 

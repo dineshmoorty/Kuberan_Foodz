@@ -74,8 +74,11 @@ if ("serviceWorker" in navigator) {
     const isRootPage = document.body?.dataset?.page === "home";
     const serviceWorkerPath = isRootPage ? "./sw.js" : "../sw.js";
 
-    navigator.serviceWorker.register(serviceWorkerPath).catch((error) => {
-      console.warn("PWA service worker registration failed:", error);
-    });
+    navigator.serviceWorker
+      .register(serviceWorkerPath, { updateViaCache: "none" })
+      .then((registration) => registration.update())
+      .catch((error) => {
+        console.warn("PWA service worker registration failed:", error);
+      });
   });
 }
