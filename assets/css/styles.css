@@ -1,4 +1,9 @@
-﻿html {
+@import "tailwindcss";
+
+@source "../../index.html";
+@source "../../pages";
+@source "../../scripts";
+html {
   scroll-behavior: smooth;
   scroll-padding-top: 6.5rem;
 }
@@ -351,3 +356,4 @@ body {
     flex-basis: calc((100% - 3rem) / 3);
   }
 }
+

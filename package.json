@@ -1,0 +1,19 @@
+{
+  "name": "kuberan_foodz",
+  "version": "1.0.0",
+  "description": "Kuberan Foodz is a responsive food-ordering website built for a homemade tiffen brand in Madurai. The site highlights the menu, customer trust points, business details, and a simple cart flow that sends orders directly to WhatsApp.",
+  "main": "sw.js",
+  "scripts": {
+    "build": "npm run build:css",
+    "build:css": "tailwindcss -i ./assets/css/styles.css -o ./assets/css/output.css --minify",
+    "watch:css": "tailwindcss -i ./assets/css/styles.css -o ./assets/css/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "tailwindcss": "^4.2.2"
+  }
+}
