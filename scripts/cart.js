@@ -2,31 +2,32 @@ const KUBERAN_CART_KEY = "kuberan-foodz-cart";
 const KUBERAN_WHATSAPP_NUMBER = "+919488270932";
 
 const KUBERAN_TAMIL_DISH_NAMES = {
-  idly: "இட்லி",
-  dosai: "தோசை",
+  "idly": "இட்லி",
+  "dosai": "தோசை",
   "ven-pongal": "வெண் பொங்கல்",
-  chappathi: "சப்பாத்தி",
+  "chappathi": "சப்பாத்தி",
   "tomato-rice": "தக்காளி சாதம்",
   "lemon-rice": "எலுமிச்சை சாதம்",
   "malli-rice": "மல்லி சாதம்",
   "mushroom-biriyani": "மஷ்ரூம் பிரியாணி",
   "chutney": "சட்னி",
   "sambar": "சாம்பார்",
-  "idly Batter" : "இட்லி மாவு",
+  "idlyBatter": "இட்லி மாவு 1/2 கப்",
+  "idlyDosaiBatter": "இட்லி/தோசை மாவு 1 கப்",
 };
 
 const KUBERAN_DISHES = [
-  // {
-  //   id: "idly",
-  //   name: "Idly / இட்லி",
-  //   nameKey: "dish.idly.name",
-  //   category: "Tiffen",
-  //   categoryKey: "category.tiffen",
-  //   image: "../assets/dishes/idly.jpg",
-  //   description: "Soft and fluffy idly made fresh for a light and comforting meal.",
-  //   descriptionKey: "dish.idly.description",
-  //   price: 8,
-  // },
+  {
+    id: "idly",
+    name: "Idly / இட்லி",
+    nameKey: "dish.idly.name",
+    category: "Tiffen",
+    categoryKey: "category.tiffen",
+    image: "../assets/dishes/idly.jpg",
+    description: "Soft and fluffy idly made fresh for a light and comforting meal.",
+    descriptionKey: "dish.idly.description",
+    price: 8,
+  },
   // {
   //   id: "dosai",
   //   name: "Dosai / தோசை",

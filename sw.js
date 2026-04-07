@@ -9,7 +9,7 @@ const APP_SHELL = [
   "./assets/images/bg.jpg",
   "./assets/images/bg_2.jpg",
   "./assets/images/empty_cart.jpg",
-  "./assets/images/gas_error.png",
+  "./assets/images/opening.png",
   "./assets/mp3/cart.mp3",
   "./assets/mp3/whatsapp.mp3",
   "./assets/dishes/chappathi.jpg",

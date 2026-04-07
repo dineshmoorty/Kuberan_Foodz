@@ -6,8 +6,8 @@
 
     var page = document.body.getAttribute('data-page');
     var imagePath = page === 'home'
-      ? './assets/images/gas_error.png'
-      : '../assets/images/gas_error.png';
+      ? './assets/images/opening.png'
+      : '../assets/images/opening.png';
 
     var popup = document.createElement('div');
     popup.className = 'site-popup';
